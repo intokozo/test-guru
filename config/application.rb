@@ -7,7 +7,7 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 config.time_zone = 'Moscow'
-
+config.i18n.available_locales = %i[en ru]
 config.i18n.default_locale = :ru
 
 module TestGuru
