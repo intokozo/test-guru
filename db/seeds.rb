@@ -6,6 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+users = User.create([
+  { name: 'Alex', email: 'Alex@email.com' },
+  { name: 'Ann', email: 'Ann@email.com' },
+  { name: 'Victoria', email: 'Victoria@email.com' },
+  { name: 'Sam', email: 'Sam@email.com' }
+])
+
+
 categories = Category.create([
   { title: 'HTML' },
   { title: 'Ruby' },
@@ -14,12 +23,12 @@ categories = Category.create([
 ])
 
 tests = Test.create([
-  { title: 'Forms HTML', category_id: categories[0].id, level: 0 },
-  { title: 'Color in HTML', category_id: categories[0].id, level: 0 },
-  { title: 'Array', category_id: categories[1].id, level: 1 },
-  { title: 'Metaprogramming', category_id: categories[1].id, level: 1 },
-  { title: 'Filers in CSS', category_id: categories[2].id, level: 2 },
-  { title: 'Tuple', category_id: categories[3].id, level: 2 }
+  { title: 'Forms HTML', category_id: categories[0].id, level: 0, author_id: users.last.id },
+  { title: 'Color in HTML', category_id: categories[0].id, level: 0, author_id: users.last.id },
+  { title: 'Array', category_id: categories[1].id, level: 1, author_id: users.last.id },
+  { title: 'Metaprogramming', category_id: categories[1].id, level: 1, author_id: users.last.id },
+  { title: 'Filers in CSS', category_id: categories[2].id, level: 2, author_id: users.last.id },
+  { title: 'Tuple', category_id: categories[3].id, level: 2, author_id: users.last.id }
 ])
 
 questions = Question.create([
@@ -50,13 +59,6 @@ Answer.create([
     constructed.', question_id: questions[4].id, correct: false },
   { body: 'Returns the number of items in enum through enumeration.',
     question_id: questions[4].id, correct: true },
-])
-
-User.create([
-  { name: 'Alex', email: 'Alex@email.com' },
-  { name: 'Ann', email: 'Ann@email.com' },
-  { name: 'Victoria', email: 'Victoria@email.com' },
-  { name: 'Sam', email: 'Sam@email.com' }
 ])
 
 User.first.tests = tests[0..3]
