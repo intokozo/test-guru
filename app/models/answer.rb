@@ -10,8 +10,8 @@ class Answer < ApplicationRecord
   private
 
   def validate_max_number
-    return if question.answers.count < MAX_ANSWERS
+    return if question.answers.count > MAX_ANSWERS
 
-    errors.add(:base, "Question should have more than #{MAX_ANSWERS} answers")
+    errors.add(:base, "Question should have no more than #{MAX_ANSWERS} answers")
   end
 end
