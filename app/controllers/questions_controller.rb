@@ -1,41 +1,49 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, except: %i[index new create]
-  before_action :set_test, only: :index
+  before_action :get_test, only: %i[index create]
+  before_action :get_question, only: %i[show destroy]
 
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_quest_404
 
   def index
-    links = @test.questions.map do |question|
-      "<div><a href='#{question_path(question)}'>#{question.body}</a></div><br>"
-    end
-    render html: links.join('').html_safe
+    render json: { questions: @test.questions }
+  end
+
+  def show
+  end
+
+  def new
   end
 
   def create
-    question = Question.new(question_params)
+    question =  @test.questions.new(question_params)
+
     if question.save
-      redirect_to question
+      redirect_to question_path(question.id)
     else
-      render :new
+      render plain: "Что-то пошло не так!"
     end
   end
 
   def destroy
-    @question.destroy
-    redirect_to test_questions_path(test)
+    question = @question.destroy
+    redirect_to test_path(question.test_id)
   end
 
   private
 
-  def set_question
+  def get_question
     @question = Question.find(params[:id])
   end
 
-  def set_test
+  def get_test
     @test = Test.find(params[:test_id])
   end
 
+  def rescue_with_quest_404
+    render plain: '404. Этот вопрос отсутствует.', status: 404
+  end
+
   def question_params
-    params.require(:question).permit(:test_id, :body)
+    params.require(:question).permit(:body)
   end
 end
