@@ -1,0 +1,13 @@
+<div>
+  <b>Тест:</b>
+  <div><%= @test.title %></div>
+</div>
+<br>
+<div>
+  <b>Вопросы:</b>
+  <ul>
+    <% @test.questions.each do |question| %>
+      <li><%= question.body %></li>
+    <% end %>
+  </ul>
+</div>

@@ -5,7 +5,6 @@ class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_quest_404
 
   def index
-    render json: { questions: @test.questions }
   end
 
   def show
