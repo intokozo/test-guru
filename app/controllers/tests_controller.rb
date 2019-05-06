@@ -1,15 +1,10 @@
 class TestsController < ApplicationController
-  before_action :get_test, only: :show
   def index
     @test = Test.all
   end
 
   def show
-  end
-
-  private
-
-  def get_test
-    @test = Test.find(params[:id])
+    test = Test.find(params[:id])
+    redirect_to test_questions_path(test.id)
   end
 end

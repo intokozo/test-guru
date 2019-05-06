@@ -5,9 +5,15 @@
 <br>
 <div>
   <b>Вопросы:</b>
-  <ul>
+  <table>
     <% @test.questions.each do |question| %>
-      <li><%= question.body %></li>
+    <tr align="left">
+      <th><%= question.body %></th>
+      <th><%= link_to 'Показать', question %></th>
+      <th colspan="2"></th>
+    </tr>
     <% end %>
-  </ul>
-</div>
+  </table>
+ </div>
+ <a href="<%= new_test_question_path(@test) %>"Создать вопрос</a>
+ Создать вопрос

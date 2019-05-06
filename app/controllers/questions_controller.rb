@@ -17,7 +17,7 @@ class QuestionsController < ApplicationController
     question =  @test.questions.new(question_params)
 
     if question.save
-      redirect_to question_path(question.id)
+      redirect_to test_path(question.test_id)
     else
       render plain: "Что-то пошло не так!"
     end
