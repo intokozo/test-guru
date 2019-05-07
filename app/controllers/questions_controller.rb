@@ -11,15 +11,17 @@ class QuestionsController < ApplicationController
   end
 
   def new
+    @text = "Давайте создадим новый вопрос!"
   end
 
   def create
-    question =  @test.questions.new(question_params)
+    question = @test.questions.new(question_params)
 
     if question.save
       redirect_to test_path(question.test_id)
     else
-      render plain: "Что-то пошло не так!"
+      @text = "Поле не должно быть пустым, попробуйте еще раз."
+      render template: 'questions/new'
     end
   end
 
