@@ -1,0 +1,17 @@
+<div>
+  <b>Тест:</b>
+  <div><%= @test.title %></div>
+</div>
+<br>
+<div>
+  <b>Вопросы:</b>
+  <table>
+    <% @test.questions.each do |question| %>
+    <tr align="left">
+      <th><%= question.body %></th>
+      <th><%= link_to 'Показать', question %></th>
+      <th colspan="2"></th>
+    </tr>
+    <% end %>
+  </table>
+</div>
