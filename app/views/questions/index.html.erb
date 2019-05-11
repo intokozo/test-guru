@@ -9,7 +9,8 @@
     <% @test.questions.each do |question| %>
     <tr align="left">
       <th><%= question.body %></th>
-      <th><%= link_to 'Показать', question %></th>
+      <th><%= link_to 'показать', question %></th>
+      <th><%= link_to 'редактировать', edit_question_path(question.id) %></th>
       <th colspan="2"></th>
     </tr>
     <% end %>

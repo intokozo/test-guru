@@ -1,26 +1,23 @@
-<div>
-  <b>Вопрос:</b>
-  <div><%= @question.body %></div>
-</div>
-<br>
-<div>
-  <b>Ответы:</b>
-  <ul>
-    <% @question.answers.each do |answer| %>
-      <li><%= answer.body %></li>
-    <% end %>
-  </ul>
-</div>
-<br>
-<div>
-  <b>Из теста:</b>
-  <div><%= @question.test.title %></div>
-</div>
-<br>
-<button>
-  <a href="<%= question_path(@question) %>"
-     data-confirm="Вы уверены?"
-     data-method="delete">
-     Удалить вопрос
-  </a>
-</button>
+<p><%= link_to 'all questions', test_questions_path(@question.test) %></p>
+<table style="text-align: left;" border="collapse">
+  <tr>
+    <th>Вопрос:</th>
+    <td><%= @question.body %></td>
+  </tr>
+  <tr>
+    <th>Из теста:</th>
+    <td><%= @question.test.title %></td>
+  </tr>
+  <tr>
+    <th style="vertical-align: top">Ответы:</th>
+    <td><ul><%= render @question.answers %></ul></td>
+  </tr>
+</table>
+
+<p>
+  <%= link_to 'Редактировать', edit_question_path(@question) %>
+  <%= link_to 'Удалить',
+              question_path(@question),
+              'data-confirm': 'Вы уверены?',
+              'data-method': :delete %>
+</p>
