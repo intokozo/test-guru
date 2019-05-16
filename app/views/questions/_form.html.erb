@@ -1,0 +1,9 @@
+<%= form_with model: [@test, @question], local: true do |form| %>
+  <h2><%= @question.test.title %></h2>
+  <%= render 'shared/errors', resource: @question %>
+  <div>
+    <div><%= form.label :body, 'Вопрос' %></div>
+    <%= form.text_area :body, rows: 5, cols: 50 %>
+  </div>
+  <%= form.submit 'Сохранить' %>
+<% end %>

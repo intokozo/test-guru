@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
-  before_action :get_test, only: %i[index create]
-  before_action :get_question, only: %i[show destroy]
+  before_action :get_test, only: %i[index new create]
+  before_action :get_question, only: %i[show edit destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_quest_404
 
@@ -11,23 +11,22 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @text = "Давайте создадим новый вопрос!"
+    @question = @test.questions.new
   end
 
   def create
-    question = @test.questions.new(question_params)
+    @question = @test.questions.new(question_params)
 
-    if question.save
-      redirect_to test_path(question.test_id)
+    if @question.save
+      redirect_to @question
     else
-      @text = "Поле не должно быть пустым, попробуйте еще раз."
-      render template: 'questions/new'
+      render :edit
     end
   end
 
   def destroy
-    question = @question.destroy
-    redirect_to test_path(question.test_id)
+    @question.destroy
+    redirect_to test_questions_path(@question.test)
   end
 
   private

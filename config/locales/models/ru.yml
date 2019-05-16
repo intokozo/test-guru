@@ -1,0 +1,13 @@
+ru:
+  activerecord:
+    models:
+      user: Пользователь
+      answer: Ответ
+      category: Категория
+      question: Вопрос
+      test: Тест
+    attributes:
+      profile:
+        name: "Отображаемое имя"
+        title: Название
+        level: Уровень

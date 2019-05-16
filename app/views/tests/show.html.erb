@@ -1,0 +1,22 @@
+<div><%= link_to 'Все тесты', tests_path %></div>
+<h1><%= @test.title %></h1>
+<table style="text-align: left">
+  <tr>
+    <th>Категория: </th>
+    <td><%= @test.category.title %></td>
+  </tr>
+  <tr>
+    <th>Уровень: </th>
+    <td><%= @test.level %></td>
+  </tr>
+  <tr>
+    <th style="vertical-align: top">Вопросы: </th>
+    <td>
+      <table><%= render @test.questions %></table>
+      <br>
+      <button>
+        <%= link_to 'Добавить вопрос', new_test_question_path(@test) %>
+      </button>
+    </td>
+  </tr>
+</table>
