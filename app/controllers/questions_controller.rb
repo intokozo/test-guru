@@ -4,14 +4,11 @@ class QuestionsController < ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_quest_404
 
-  def index
+  def new
+    @question = @test.questions.new
   end
 
   def show
-  end
-
-  def new
-    @question = @test.questions.new
   end
 
   def create
@@ -26,7 +23,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to test_questions_path(@question.test)
+    redirect_to @question.test
   end
 
   private
