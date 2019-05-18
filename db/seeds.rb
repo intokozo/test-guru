@@ -6,59 +6,51 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 users = User.create([
-  { name: 'Alex', email: 'Alex@email.com' },
-  { name: 'Ann', email: 'Ann@email.com' },
-  { name: 'Victoria', email: 'Victoria@email.com' },
-  { name: 'Sam', email: 'Sam@email.com' }
+  { name: 'Bob', email: 'Bob@email.com' },
+  { name: 'Alice', email: 'Alice@email.com' },
+  { name: 'Jane', email: 'Jane@email.com' },
+  { name: 'Tim', email: 'Tim@email.com' }
 ])
 
-
 categories = Category.create([
-  { title: 'HTML' },
-  { title: 'Ruby' },
-  { title: 'CSS' },
-  { title: 'Python' }
+  { title: 'Frontend' },
+  { title: 'Backend' },
+  { title: 'Machine Learning' },
+  { title: 'Mobile Development' }
 ])
 
 tests = Test.create([
-  { title: 'Forms HTML', category_id: categories[0].id, level: 0, author_id: users.last.id },
-  { title: 'Color in HTML', category_id: categories[0].id, level: 0, author_id: users.last.id },
-  { title: 'Array', category_id: categories[1].id, level: 1, author_id: users.last.id },
-  { title: 'Metaprogramming', category_id: categories[1].id, level: 1, author_id: users.last.id },
-  { title: 'Filers in CSS', category_id: categories[2].id, level: 2, author_id: users.last.id },
-  { title: 'Tuple', category_id: categories[3].id, level: 2, author_id: users.last.id }
+  { title: 'HTML', category_id: categories[0].id, level: 1, author_id: users.last.id },
+  { title: 'CSS', category_id: categories[0].id, level: 1, author_id: users.last.id },
+  { title: 'JS', category_id: categories[0].id, level: 1, author_id: users.last.id },
+  { title: 'Ruby', category_id: categories[1].id, level: 1, author_id: users.last.id },
+  { title: 'Ruby on Rails', category_id: categories[1].id, level: 2, author_id: users.last.id },
+  { title: 'Python', category_id: categories[2].id, level: 1, author_id: users.last.id },
+  { title: 'Android', category_id: categories[3].id, level: 2, author_id: users.last.id }
 ])
 
 questions = Question.create([
-  { body: 'Which attribute changes the color of the text', test_id: tests[1].id },
-  { body: 'Which attribute changes the color of the background?', test_id: tests[1].id },
-  { body: 'What does the collect method do?', test_id: tests[2].id },
-  { body: 'What does the each method do?', test_id: tests[2].id },
-  { body: 'What does the count method do?', test_id: tests[2].id },
-  { body: 'A single item tuple is created as', test_id: tests[5].id }
+  { body: 'What does HTML stand for?', test_id: tests[0].id },
+  { body: 'Who is making the Web standards?', test_id: tests[0].id },
+  { body: 'Choose the correct HTML element for the largest heading:', test_id: tests[0].id },
+  { body: 'What does CSS stand for?', test_id: tests[1].id },
+  { body: 'Inside which HTML element do we put the JavaScript?', test_id: tests[2].id },
+  { body: 'How do you insert COMMENTS in Python code?', test_id: tests[2].id }
 ])
 
 Answer.create([
-  { body: "a = ('s')", question_id: questions[5].id, correct: false },
-  { body: "a = ('s', )", question_id: questions[5].id, correct: true },
-  { body: '<font color>', question_id: questions[0].id, correct: true },
-  { body: '<font size>', question_id: questions[0].id, correct: false },
-  { body: '<body bgcolor>', question_id: questions[1].id, correct: true },
-  { body: '<body text>', question_id: questions[1].id, correct: false },
-  { body: 'Returns a new array with the results of running block once for every
-    element in enum', question_id: questions[2].id, correct: true },
-  { body: 'Returns the number of items in enum through enumeration.',
-    question_id: questions[2].id, correct: false },
-  { body: 'Calls block for each element of enum repeatedly n times or forever if
-    none or nil is given.', question_id: questions[3].id, correct: false },
-  { body: 'Iterates over the block according to how this Enumerator was
-    constructed.', question_id: questions[3].id, correct: true },
-  { body: 'Iterates over the block according to how this Enumerator was
-    constructed.', question_id: questions[4].id, correct: false },
-  { body: 'Returns the number of items in enum through enumeration.',
-    question_id: questions[4].id, correct: true },
+  { body: 'Hyper Text Markup Language', question_id: questions[0].id, correct: true },
+  { body: 'Home Tool Markup Language', question_id: questions[0].id, correct: false },
+  { body: 'Hyperlinks and Text Markup Language', question_id: questions[0].id, correct: false },
+  { body: 'The World Wide Web Consortium', question_id: questions[0].id, correct: true },
+  { body: 'Microsoft', question_id: questions[1].id, correct: false },
+  { body: 'Google', question_id: questions[1].id, correct: false },
+  { body: 'Mozilla', question_id: questions[1].id, correct: false },
+  { body: '<heading>', question_id: questions[2].id, correct: false },
+  { body: '<head>', question_id: questions[2].id, correct: false },
+  { body: '<h1>', question_id: questions[2].id, correct: true },
+  { body: '<h6>', question_id: questions[2].id, correct: false }
 ])
 
 User.first.tests = tests[0..3]
