@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :get_test, only: %i[index new create]
-  before_action :get_question, only: %i[show edit destroy]
+  before_action :get_question, only: %i[show edit destroy update]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_quest_404
 
@@ -15,6 +15,14 @@ class QuestionsController < ApplicationController
     @question = @test.questions.new(question_params)
 
     if @question.save
+      redirect_to @question
+    else
+      render :edit
+    end
+  end
+
+  def update
+    if @question.update(question_params)
       redirect_to @question
     else
       render :edit
