@@ -48,10 +48,6 @@ class TestsController < ApplicationController
     params.require(:test).permit(:title, :level)
   end
 
-  def set_user
-    @user = User.first
-  end
-
   def set_test
     @test = Test.find(params[:id])
   end
