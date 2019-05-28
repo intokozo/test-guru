@@ -1,18 +1,14 @@
-<p><%= link_to 'all questions', test_questions_path(@question.test) %></p>
-<table style="text-align: left;" border="collapse">
-  <tr>
-    <th>Вопрос:</th>
-    <td><%= @question.body %></td>
-  </tr>
-  <tr>
-    <th>Из теста:</th>
-    <td><%= @question.test.title %></td>
-  </tr>
-  <tr>
-    <th style="vertical-align: top">Ответы:</th>
-    <td><ul><%= render @question.answers %></ul></td>
-  </tr>
-</table>
+<<h1><%= @question.test.title %> вопрос</h1>
+
+<p><%= link_to 'Все вопросы', test_path(@question.test) %></p>
+
+<p><%= @question.body %></p>
+
+<h2>Ответы</h2>
+<%= link_to 'Новый ответ', new_question_answer_path(@question) %>
+<ol>
+  <%= render @question.answers %>
+</ol>
 
 <p>
   <%= link_to 'Редактировать', edit_question_path(@question) %>

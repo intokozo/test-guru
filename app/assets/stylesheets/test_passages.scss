@@ -1,0 +1,19 @@
+// Place all the styles related to the test_passages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.test__result {
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+.test__score {
+  font-size: 1.5em;
+
+  &--success { color: green; }
+  &--fail { color: red; }
+}
+
+.test__message {
+  font-size: 1.3rem;
+  font-weight: 600;
+}

@@ -1,0 +1,15 @@
+<h1>Вы закончили <%= @test_passage.test.title %> тест!</h1>
+<hr>
+<% successful = @test_passage.successful? %>
+<p class="test__result">
+  Your score is:
+  <span class="test__score test__score--<%= successful ? 'success' : 'fail' %>">
+    <%= number_to_percentage(@test_passage.score, precision: 0) %>
+  </span>
+</p>
+
+<p class="test__message">
+  <% successful ? 'You Passed!' : 'You Failed :(' %>
+</p>
+
+<%= link_to 'back to tests', tests_path %>
