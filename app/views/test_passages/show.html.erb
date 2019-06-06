@@ -1,8 +1,8 @@
-<h1>Passing the <%= @test_passage.test.title %> test </h1>
+<h1><%= t '.title', name: @test_passage.test.title %></h1>
 <p>
-  Question
+    <%= t '.question' %>
   <b><%= @test_passage.current_question.position %></b>
-  out of
+  <%= t '.out_of' %>
   <b><%= @test_passage.test.questions.count %></b>
 </p>
   <%= @test_passage.current_question.body %>
@@ -17,5 +17,5 @@
       <% end %>
     </p>
   <% end %>
-  <%= form.submit 'Next' %>
+    <%= form.submit t '.next' %>
 <% end %>
