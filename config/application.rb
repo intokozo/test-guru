@@ -8,7 +8,7 @@ Bundler.require(*Rails.groups)
 
 
 module TestGuru
-  
+
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
@@ -20,6 +20,6 @@ module TestGuru
     # the framework and any gems in your application.
     config.time_zone = 'Moscow'
     config.i18n.available_locales = %i[en ru]
-    config.i18n.default_locale = :ru
+    config.i18n.default_locale = :en
   end
 end
