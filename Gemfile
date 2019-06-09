@@ -29,6 +29,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'therubyracer'
 gem 'devise', '~> 4.6', '>= 4.6.2'
 
+# Interface
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.3', '>= 4.3.1'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
