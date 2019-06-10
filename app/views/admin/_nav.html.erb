@@ -2,8 +2,7 @@
   <div class='container'>
     <div class='nav'>
       <%= link_to 'Test Guru', root_path, class: 'navbar-brand' %>
-<%= link_to admin_tests_path, class: 'nav-link' do %>
-<% end %>
+      <%= link_to 'Gists', admin_gists_path, class: 'btn btn-info' %>
 </div>
 <div class='nav'>
 <span class='navbar-text'><%= t 'welcome_html', email: current_user.email %></span>
