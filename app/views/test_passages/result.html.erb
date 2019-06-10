@@ -1,9 +1,9 @@
-<h1><%= t '.title', name: @test_passage.test.title %></h1>
+<h2><%= t '.title', name: @test_passage.test.title %></h2>
 <hr>
 <% successful = @test_passage.successful? %>
-<p class="test__result">
+<p>
     <%= t '.score' %>
-  <span class="test__score test__score--<%= successful ? 'success' : 'fail' %>">
+  <span class="text-<%= successful ? 'success' : 'danger' %>">
     <%= number_to_percentage(@test_passage.score, precision: 0) %>
   </span>
 </p>
@@ -12,4 +12,4 @@
   <%= successful ? t('.success') : t('.failure') %>
 </p>
 
-<%= link_to t('back'), tests_path %>
+<%= link_to t('back'), tests_path, class: 'btn btn-link' %>
