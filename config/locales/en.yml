@@ -44,6 +44,7 @@ en:
     show:
       title: 'Passing the %{name} Test'
       question: 'Question'
+      gist_question: 'Gist Question'
       out_of: 'out of'
       next: 'Next'
     result:
@@ -51,6 +52,9 @@ en:
       score: 'Your score is:'
       success: 'You Passed!'
       failure: 'You Failed!:('
+    gist:
+      success: 'Gist was successfully created!'
+      failure: 'An error occurred while saving gist'
   admin:
     tests:
       index:
@@ -61,6 +65,10 @@ en:
         heading: 'Edit Test'
       new:
         heading: 'New Test'
+    gists:
+      index:
+        question: 'Question'
+        user: 'User Email'
     nav:
       heading: 'Admin Panel'
   devise:
@@ -78,3 +86,5 @@ en:
   sessions:
     create:
       hello: 'Hello, %{name}!'
+  gist:
+    question: 'A question about %{test_title} from TestGuru'
