@@ -44,6 +44,7 @@ ru:
     show:
       title: 'Тест: %{name}'
       question: 'Вопрос'
+      gist_question: 'Сохранить в Gist'
       out_of: 'из'
       next: 'Далее'
     result:
@@ -51,6 +52,9 @@ ru:
       score: 'Ваш результат:'
       success: 'Вы прошли!'
       failure: 'Вы провалились! :('
+    gist:
+      success: 'Gist успешно сохранен'
+      failure: 'Во время сохранения gist произошла ошибка'
   admin:
     tests:
       index:
@@ -61,6 +65,10 @@ ru:
         heading: 'Редактирование теста'
       new:
         heading: 'Создание теста'
+    gists:
+      index:
+        question: 'Вопрос'
+        user: 'Email пользователя'
     nav:
       heading: 'Панель администратора'
   devise:
@@ -78,3 +86,5 @@ ru:
   sessions:
     create:
       hello: 'Здравствуй, %{name}!'
+  gist:
+    question: 'Вопрос по теме %{test_title} из TestGuru'

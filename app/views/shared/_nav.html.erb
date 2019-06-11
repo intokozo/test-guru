@@ -2,7 +2,7 @@
   <div class='container'>
     <div class='nav'>
       <%= link_to 'Test Guru', root_path, class: 'navbar-brand' %>
-      <% if current_user.admin? %>
+      <% if current_user.present? && current_user.admin? %>
           <%= link_to 'Admin panel', admin_tests_path, class: 'btn btn-info' %>
       <% end %>
     </div>
