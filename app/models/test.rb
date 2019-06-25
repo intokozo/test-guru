@@ -15,6 +15,7 @@ class Test < ApplicationRecord
                            .order(title: :desc)
                            .pluck(:title)
                        end)
+  scope :valid, -> { joins(questions: :answers).group(:id) }
 
   validates :title, presence: true
   validates :title, uniqueness: { scope: :level }
