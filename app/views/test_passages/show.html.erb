@@ -1,7 +1,20 @@
 <h1 class='mb-4'><%= t '.title', name: @test_passage.test.title %></h1>
 <div class='card'>
   <div class='card-header'>
+    <div class='mb-2'>
       <%= t '.question_html', position: @test_passage.current_question.position, total: @test_passage.test.questions.count %>
+    </div>
+        <div class='progress mb-1'>
+          <div
+            class='progress-bar bg-success'
+            role='progressbar'
+            style='width: <%= @test_passage.progress %>%'
+            aria-valuenow='<%= @test_passage.progress %>'
+            aria-valuemin='0'
+            aria-valuemax='100'>
+              <%= @test_passage.progress %>%
+          </div>
+        </div>
   </div>
   <div class='card-body'>
     <h4 class='card-title mb-4'>

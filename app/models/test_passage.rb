@@ -24,6 +24,12 @@ class TestPassage < ApplicationRecord
     @score ||= (correct_questions * 100.0 / test.questions.count).ceil
   end
 
+  def progress
+    ((current_question.position - 1) * 100.0 / test.questions.count).round(1)
+  end
+
+
+
   private
 
   def before_validation_set_question
