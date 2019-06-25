@@ -3,11 +3,10 @@ class CreateTestPassages < ActiveRecord::Migration[5.2]
     create_table :test_passages do |t|
      t.references :test, foreign_key: true
      t.references :user, foreign_key: true
-     t.references :current_question, foreign_key: false
+     t.references :current_question, index: true, foreign_key: { to_table: :questions }
      t.integer :correct_questions, default: 0
 
      t.timestamps
     end
-    add_foreign_key :test_passages, :current_question, column: :current_question_id
   end
 end
