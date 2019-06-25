@@ -8,7 +8,7 @@ class TestPassagesController < ApplicationController
 
     if @test_passage.completed?
       begin
-  QuizzesMailer.completed_quiz(@quiz_passage).deliver_now
+  testsMailer.completed_quiz(@quiz_passage).deliver_now
       rescue Net::SMTPAuthenticationError
         flash_msg = { alert: 'Gmail authentication error' }
 end

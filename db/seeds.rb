@@ -15,8 +15,8 @@ categories = Category.create([
 
 frontend = categories.first
 
-html = frontend.quizzes.create title: 'HTML', level: 0, creator_id: admin.id
-css = frontend.quizzes.create title: 'CSS', level: 0, creator_id: admin.id
+html = frontend.tests.create title: 'HTML', level: 0, creator_id: admin.id
+css = frontend.tests.create title: 'CSS', level: 0, creator_id: admin.id
 
 html.questions.create([
                         { body: 'What does HTML stand for?' },
