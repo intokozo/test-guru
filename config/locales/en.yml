@@ -11,11 +11,10 @@ en:
   log_in: 'Log in'
   log_out: 'Log out'
   welcome_html: 'Welcome, <b>%{email}</b> Guru!'
-  admin_panel: 'Admin panel'
 
   helpers:
     label:
-      test:
+      quiz:
         title: 'Title'
         level: 'Level'
         category: 'Category'
@@ -27,28 +26,37 @@ en:
         last_name: 'Last name'
       feedback:
         text: 'Message'
+      badge:
+        title: 'Title'
+        image: 'Image'
+        rule: 'Rule'
+        rule_type: 'Rule type'
+        rule_value: 'Rule Value'
     submit:
-      test:
+      quiz:
         create: 'Create Test'
         update: 'Update Test'
+      feedback:
+        create: 'Send'
+      badge:
+        create: 'Create Badge'
     select:
       prompt: 'Please select'
 
-  tests:
+  quizzes:
     title: 'Title'
     level: 'Level'
     category: 'Category'
     questions: 'Questions'
     index:
       heading: 'Tricky Tests'
-    test:
+    quiz:
       start: 'Start'
-  test_passages:
+  quiz_passages:
     show:
-      title: 'Passing the %{name} Test'
-      question: 'Question'
+      title: 'Passing the %{name} Quiz'
+      question_html: 'Question <b>%{position}</b> out of <b>%{total}</b>'
       gist_question: 'Gist Question'
-      out_of: 'out of'
       next: 'Next'
     result:
       title: 'You finished "%{name}" test!'
@@ -58,8 +66,16 @@ en:
     gist:
       success: 'Gist was successfully created!'
       failure: 'An error occurred while saving gist'
+  badges:
+    title: 'Title'
+    image: 'Image'
+    rule: 'Rule'
+    achieved: 'Achieved'
+    number: 'Number'
+    index:
+      heading: 'My badges'
   admin:
-    tests:
+    quizzes:
       index:
         heading: 'Tricky Tests'
       show:
@@ -72,8 +88,22 @@ en:
       index:
         question: 'Question'
         user: 'User Email'
+    badges:
+      index:
+        heading: 'Badges'
+      new:
+        heading: 'New Badge'
+      edit:
+        heading: 'Edit Badge'
+    rules:
+      category: 'Category'
+      level: 'Level'
+      score: 'Score not less(%)'
+      attempts: 'Attempts'
     nav:
       heading: 'Admin Panel'
+      tests: 'Tests'
+      badges: 'Badges'
   devise:
     registrations:
       new:
@@ -82,6 +112,7 @@ en:
       new:
         heading: 'Enter the Guru Gates'
         enter: 'Enter'
+        remember_me: 'Remember me'
     shared:
       links:
         forgot_pass: 'Forgot your password?'
@@ -90,8 +121,10 @@ en:
     create:
       hello: 'Hello, %{name}!'
   gist:
-    question: 'A question about %{test_title} from TestGuru'
-
+    question: 'A question about %{quiz_title} from TestGuru'
   feedbacks:
     new:
       heading: 'Feedback'
+  shared:
+    nav:
+      my_badges: 'My badges'

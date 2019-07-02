@@ -5,6 +5,7 @@
       <% if current_user.present? && current_user.admin? %>
           <%= link_to 'Admin panel', admin_tests_path, class: 'btn btn-info' %>
       <% end %>
+            <%= link_to t('.my_badges'), badges_path, class: 'nav-link' %>
     </div>
   <div class='nav'>
     <% if user_signed_in? %>

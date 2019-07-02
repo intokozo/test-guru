@@ -15,6 +15,7 @@ class Test < ApplicationRecord
                            .order(title: :desc)
                            .pluck(:title)
                        end)
+  scope :by_category_id, ->(category) { where(category: category)}
   scope :valid, -> { joins(questions: :answers).group(:id) }
 
   validates :title, presence: true

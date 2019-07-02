@@ -7,6 +7,7 @@ class TestPassagesController < ApplicationController
     @test_passage.accept!(params[:answer_ids])
 
     if @test_passage.completed?
+      RewardService.new(current_user).call if @test_passage.successful? && @test_passage.first_attempt?
       begin
   TestsMailer.completed_test(@test_passage).deliver_now
       rescue Net::SMTPAuthenticationError

@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
   has_many :gists
   has_many :feedbacks
+  has_and_belongs_to_many :badges
 
   def tests_by_level(level)
     tests.where(level: level)
@@ -19,6 +20,10 @@ class User < ApplicationRecord
 
   def test_passage(test)
     test_passages.order(id: :desc).find_by(test_id: test.id)
+  end
+
+  def completed_tests
+    tests.where(test_passages: { passed: true })
   end
 
   def admin?
