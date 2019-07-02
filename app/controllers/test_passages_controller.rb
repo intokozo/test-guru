@@ -6,13 +6,8 @@ class TestPassagesController < ApplicationController
   def update
     @test_passage.accept!(params[:answer_ids])
 
-    if @test_passage.completed?
-      begin
-  TestsMailer.completed_test(@test_passage).deliver_now
-      rescue Net::SMTPAuthenticationError
-        flash_msg = { alert: 'Gmail authentication error' }
-end
-      redirect_to result_test_passage_path(@test_passage), flash_msg || {}
+    if @test_passage.completed? || @test_passage.out_of_time
+      finish_test
     else
       render :show
     end
@@ -34,9 +29,24 @@ end
     redirect_to @test_passage, flash_msg
   end
 
+  def finish
+    @test_passage.update(passed: true) if @test_passage.successful?
+
+    finish_test
+  end
+
   private
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
+  end
+
+  def finish_test
+    begin
+      testsMailer.completed_test(@test_passage).deliver_now
+    rescue Net::SMTPAuthenticationError
+      flash_msg = { alert: 'Gmail authentication error' }
+    end
+    redirect_to result_test_passage_path(@test_passage), flash_msg || {}
   end
 end

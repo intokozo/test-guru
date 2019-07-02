@@ -15,9 +15,12 @@ class Test < ApplicationRecord
                            .order(title: :desc)
                            .pluck(:title)
                        end)
+  scope :by_category_id, ->(category) { where(category: category)}
   scope :valid, -> { joins(questions: :answers).group(:id) }
 
   validates :title, presence: true
   validates :title, uniqueness: { scope: :level }
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
+  validates :time, numericality: { only_integer: true,
+                                   greater_than_or_equal_to: 1 }
 end

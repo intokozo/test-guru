@@ -13,9 +13,12 @@ Rails.application.routes.draw do
   resources :test_passages, only: %i[show update] do
     member do
       get :result
+      get :finish
       post :gist
     end
   end
+
+  resources :badges, only: :index
 
   namespace :admin do
     resources :tests do
@@ -25,6 +28,8 @@ Rails.application.routes.draw do
       patch :update_inline, on: :member
     end
     resources :gists, only: %i[index]
+    resources :badges
+    get '/rule_values', to: 'rules#values'
   end
 
   resources :feedbacks, only: %i[new create]
