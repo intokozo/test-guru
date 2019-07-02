@@ -14,10 +14,11 @@ en:
 
   helpers:
     label:
-      quiz:
+      test:
         title: 'Title'
         level: 'Level'
         category: 'Category'
+        time: 'Time (min)'
       user:
         password: 'Password'
         password_confirmation: 'Password confirmation'
@@ -33,7 +34,7 @@ en:
         rule_type: 'Rule type'
         rule_value: 'Rule Value'
     submit:
-      quiz:
+      test:
         create: 'Create Test'
         update: 'Update Test'
       feedback:
@@ -43,18 +44,20 @@ en:
     select:
       prompt: 'Please select'
 
-  quizzes:
+  tests:
     title: 'Title'
     level: 'Level'
     category: 'Category'
     questions: 'Questions'
+    time: 'Time (min)'
+    time_unlimited: 'No limit'
     index:
       heading: 'Tricky Tests'
-    quiz:
+    test:
       start: 'Start'
-  quiz_passages:
+  test_passages:
     show:
-      title: 'Passing the %{name} Quiz'
+      title: 'Passing the %{name} test'
       question_html: 'Question <b>%{position}</b> out of <b>%{total}</b>'
       gist_question: 'Gist Question'
       next: 'Next'
@@ -75,7 +78,7 @@ en:
     index:
       heading: 'My badges'
   admin:
-    quizzes:
+    tests:
       index:
         heading: 'Tricky Tests'
       show:
@@ -121,7 +124,7 @@ en:
     create:
       hello: 'Hello, %{name}!'
   gist:
-    question: 'A question about %{quiz_title} from TestGuru'
+    question: 'A question about %{test_title} from TestGuru'
   feedbacks:
     new:
       heading: 'Feedback'

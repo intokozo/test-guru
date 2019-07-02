@@ -19,6 +19,7 @@ ru:
         title: 'Название'
         level: 'Сложность'
         category: 'Категория'
+        time: 'Время (мин.)'
       user:
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
@@ -49,6 +50,8 @@ ru:
     level: 'Сложность'
     questions: 'Вопросы'
     category: 'Категория'
+    time: 'Время (мин)'
+    time_unlimited: 'Неограниченно'
     index:
       heading: 'Доступные тесты'
     test:

@@ -2,5 +2,6 @@
   <th scope="row"><%= test.title %></th>
   <td><%= test.level %></td>
   <td><%= test.questions.count %></td>
+  <td><%= test.time || t('tests.time_unlimited') %></td>
   <td><%= button_to t('.start'), start_test_path(test), class: 'btn btn-info' %></td>
 </tr>
