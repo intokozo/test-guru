@@ -25,10 +25,14 @@ ru:
         remember_me: 'Запомнить меня'
         first_name: 'Имя'
         last_name: 'Фамилия'
+      feedback:
+        text: 'Сообщение'
     submit:
       test:
         create: 'Создать тест'
         update: 'Обновить тест'
+      feedback:
+        create: 'Отправить'
     select:
       prompt: 'Выберите'
 
@@ -89,3 +93,6 @@ ru:
       hello: 'Здравствуй, %{name}!'
   gist:
     question: 'Вопрос по теме %{test_title} из TestGuru'
+  feedbacks:
+    new:
+      heading: 'Обратная связь'

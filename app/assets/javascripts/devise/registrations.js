@@ -3,8 +3,8 @@ document.addEventListener('turbolinks:load', function() {
   var passConfirmation = document.querySelector('.js-pass-confirm-field')
 
   if (passConfirmation) {
-    var iconSuccess = passConfirmation.querySelector('.octicon-thumbsdown')
-    var iconFailure = passConfirmation.querySelector('.octicon-thumbsup')
+    var iconSuccess = passConfirmation.querySelector('.octicon-thumbsup')
+    var iconFailure = passConfirmation.querySelector('.octicon-thumbsdown')
 
     passConfirmation.querySelector('input').addEventListener('input', function() {
       var password = document.querySelector('.js-pass-field input').value
